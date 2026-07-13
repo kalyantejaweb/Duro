@@ -187,6 +187,25 @@
     });
   }
 
+  /* ---------- FLOATING BTNS: first-visit attention ---------- */
+  const attractBtns = document.querySelectorAll('.float-btn.whatsapp, .float-btn.call');
+  const isLandingPage = /(?:^|\/)index\.html?$/.test(window.location.pathname)
+    || window.location.pathname === '/'
+    || window.location.pathname.endsWith('/');
+
+  if (isLandingPage && attractBtns.length && !sessionStorage.getItem('duroFloatAttractShown')) {
+    attractBtns.forEach(function (btn) {
+      btn.classList.add('float-attract');
+    });
+    sessionStorage.setItem('duroFloatAttractShown', '1');
+
+    window.setTimeout(function () {
+      attractBtns.forEach(function (btn) {
+        btn.classList.remove('float-attract');
+      });
+    }, 5200);
+  }
+
   /* ---------- GALLERY FILTER ---------- */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');

@@ -1830,6 +1830,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
   border: none;
   cursor: pointer;
+  position: relative;
 }
 
 .float-btn:hover {
@@ -1843,6 +1844,95 @@ h1, h2, h3, h4, h5, h6 {
 
 .float-btn.call {
   background: var(--primary);
+}
+
+/* First-visit attention animation for WhatsApp & Call */
+.float-btn.float-attract {
+  animation: floatEntrance 0.7s cubic-bezier(0.22, 1, 0.36, 1) both,
+             floatAttention 1.4s ease-in-out 0.7s 3;
+}
+
+.float-btn.float-attract.call {
+  animation-delay: 0.15s, 0.85s;
+}
+
+.float-btn.float-attract::before,
+.float-btn.float-attract::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.float-btn.float-attract.whatsapp::before,
+.float-btn.float-attract.whatsapp::after {
+  background: rgba(37, 211, 102, 0.45);
+}
+
+.float-btn.float-attract.call::before,
+.float-btn.float-attract.call::after {
+  background: rgba(0, 123, 255, 0.45);
+}
+
+.float-btn.float-attract::before {
+  animation: floatRipple 1.4s ease-out 0.7s 3;
+}
+
+.float-btn.float-attract::after {
+  animation: floatRipple 1.4s ease-out 1.05s 3;
+}
+
+.float-btn.float-attract.call::before {
+  animation-delay: 0.85s;
+}
+
+.float-btn.float-attract.call::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes floatEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.6);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatAttention {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes floatRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-btn.float-attract,
+  .float-btn.float-attract::before,
+  .float-btn.float-attract::after {
+    animation: none;
+  }
 }
 
 .float-btn.back-top {
