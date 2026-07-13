@@ -1,0 +1,40 @@
+/* 
+  Duro Water Technologies — Local Fonts Folder
+  
+  Primary typeface: Poppins (loaded via Google Fonts CDN in HTML)
+  https://fonts.google.com/specimen/Poppins
+  
+  To self-host Poppins for offline / faster production loads:
+  1. Download Poppins from Google Fonts
+  2. Place .woff2 files in this folder
+  3. Uncomment and adjust the @font-face rules below
+  4. Update css/style.css to use local font sources
+  
+  Recommended weights: 300, 400, 500, 600, 700, 800
+*/
+
+/*
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('Poppins-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('Poppins-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('Poppins-Bold.woff2') format('woff2');
+}
+*/
